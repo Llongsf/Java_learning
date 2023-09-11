@@ -7,6 +7,7 @@ public class App {
         
         int a = 5;
         int b = 0;
+        //puint c = 3/
        try
         {
             System.out.println(a/b);
