@@ -1,3 +1,4 @@
+//静态修饰词用于方法
 public class Static_b
 {
     public static int maxx()

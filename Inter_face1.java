@@ -1,4 +1,3 @@
-import java.io.*;
 //接口
 interface NameOf_Interface
 {

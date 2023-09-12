@@ -3,13 +3,17 @@ import java.util.HashMap;
 import java.util.Map;
 //哈希表的使用
 public class hashtable {
-    public static void main(String[] args)
+    public static Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+    //integer：整形
+    public static void main(String[] args) 
     {
-        int[] nums = new int[]{2,7,11,15};
+        
+        int[] nums = new int[]{3,7,11,15};
         int target = 9;
         System.out.println(Arrays.toString(twoSum(nums, target)));
+        System.out.println("哈希表：" + hashtable);
     }
-    //最简单明了的方法
+    //最简单明了的方法，类似冒泡排序寻找
     // public static int[] twoSum(int[] nums, int target) {
     //     for (int i = 0 ;i < nums.length ;i++)
     //     {
@@ -23,22 +27,24 @@ public class hashtable {
     //         }
     //     }
     //}
-    
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
-        System.out.println(hashtable);
+    //使用哈希表，减低算法复杂度
+    public static int[] twoSum(int[] nums, int target){
+        
+        
         for (int i = 0; i < nums.length; ++i) {
-            if (hashtable.containsKey(target - nums[i])) 
+            if (hashtable.containsKey(target - nums[i])) //检查hashmap中是否有指定的key对应的映射关系
+            //比如第一次，9-2=7，就是contansKey(7)就是检查是否key对应的值为7(即7是否在hashmap中)
             {
                 return new int[]{hashtable.get(target - nums[i]), i};
+                //返回一个数组，数组的元素就是i和找到的值(7)所对应的key，key就是元素所在的数组位置
             }
-            hashtable.put(nums[i], i);
+            hashtable.put(nums[i], i);// 往找不到就添加元素
         }
         return new int[0];
     }
 }
 /*
-map.get()的过程
+map.get() (hashtable)的过程
 1. map.get(key). 首先计算key的hash。
 2. 根据hash&(length-1)定位到Node数组中的一个下标。如果该下标的元素(也就是链表/红黑树的第
 一个元素)中 key的hash的key本身 都和传入的key相同，则证明找到了元素，直接返回即可。

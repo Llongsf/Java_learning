@@ -1,8 +1,6 @@
 // Java program to demonstrate the
 // real-world example of Interfaces
 //接口的真实使用例子
-import java.io.*;
-
 interface Vehicle {
 	
 	// all are the abstract methods.
