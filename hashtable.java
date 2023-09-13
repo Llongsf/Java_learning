@@ -8,10 +8,11 @@ public class hashtable {
     public static void main(String[] args) 
     {
         
-        int[] nums = new int[]{3,7,11,15};
+        int[] nums = new int[]{2,7,11,15};
         int target = 9;
         System.out.println(Arrays.toString(twoSum(nums, target)));
         System.out.println("哈希表：" + hashtable);
+        System.out.println(hashtable.get(2));
     }
     //最简单明了的方法，类似冒泡排序寻找
     // public static int[] twoSum(int[] nums, int target) {
@@ -30,13 +31,14 @@ public class hashtable {
     //使用哈希表，减低算法复杂度
     public static int[] twoSum(int[] nums, int target){
         
-        
+        //这里将数组的值当做哈希表的key值了，也就是相当于序号值
+
         for (int i = 0; i < nums.length; ++i) {
             if (hashtable.containsKey(target - nums[i])) //检查hashmap中是否有指定的key对应的映射关系
-            //比如第一次，9-2=7，就是contansKey(7)就是检查是否key对应的值为7(即7是否在hashmap中)
+            //比如第一次，9-2=7，就是contansKey(7)就是检查是否key = 7是否有对应的value值
             {
                 return new int[]{hashtable.get(target - nums[i]), i};
-                //返回一个数组，数组的元素就是i和找到的值(7)所对应的key，key就是元素所在的数组位置
+                //返回一个数组，数组的元素就是i和找到的key所对应的值
             }
             hashtable.put(nums[i], i);// 往找不到就添加元素
         }
@@ -50,6 +52,8 @@ map.get() (hashtable)的过程
 一个元素)中 key的hash的key本身 都和传入的key相同，则证明找到了元素，直接返回即可。
 3.如果第一个元素不是要找的，如果第一个元素的类型是TreeNode，则按照红黑树的查找方法查找
 元素，如果不是则证明是链表，按照next指针找下去，直到找到或者到达队尾。 
+
+简单的功能就是找到有是否有key(...)中的值，有就返回这个key所对应的value
 */
 
 /*
