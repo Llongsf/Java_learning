@@ -1,0 +1,3 @@
+clickme是个逃开鼠标小游戏
+mouselistener可以记录鼠标在一个块上面的活动
+TestKey能够记录键盘的按下和放开
